@@ -1,10 +1,12 @@
-'use client';
+"use client";
 
-import { useNotes } from '@/hooks/useNotes';
+import { useContext } from 'react';
+import { NotesContext } from '@/contexts/NotesContext';
 import NoteItem from './NoteItem';
 
-export default function NoteList() {
-  const { notes } = useNotes();
+export function NoteList() {
+  const { notes } = useContext(NotesContext);
+
   return (
     <div>
       {notes.map(note => (
