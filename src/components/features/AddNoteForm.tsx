@@ -1,14 +1,19 @@
 "use client";
 
-import { useState, FormEvent } from 'react';
-import { useContext } from 'react';
+import { useState, FormEvent, useContext } from 'react';
 import { NotesContext } from '@/contexts/NotesContext';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 
 export function AddNoteForm() {
   const [noteText, setNoteText] = useState('');
-  const { addNote } = useContext(NotesContext);
+  const notesContext = useContext(NotesContext);
+  
+  if (!notesContext) {
+    throw new Error("Cannot find NotesContext");
+  }
+
+  const { addNote } = notesContext;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
