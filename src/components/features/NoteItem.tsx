@@ -1,16 +1,9 @@
-'use client';
-
-import { Note } from '@/types';
+"use client";
 
 interface NoteItemProps {
-  note: Note;
+  note: { id: string; text: string };
 }
 
 export default function NoteItem({ note }: NoteItemProps) {
-  return (
-    <div className="p-4 mb-2 border rounded">
-      <h2 className="text-lg font-bold">{note.title}</h2>
-      <p>{note.content}</p>
-    </div>
-  );
+  return <div className="border p-2 mb-2">{note.text}</div>;
 }
