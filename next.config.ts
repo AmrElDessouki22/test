@@ -1,8 +1,4 @@
-import { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+export default {
   reactStrictMode: true,
   swcMinify: true,
 };
-
-export default nextConfig;
