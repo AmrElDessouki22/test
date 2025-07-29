@@ -1,4 +1,4 @@
-import '../globals.css';
+import '@/app/globals.css';
 import { NotesProvider } from '@/contexts/NotesContext';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
