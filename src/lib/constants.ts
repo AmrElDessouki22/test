@@ -1,1 +1,1 @@
-export const APP_NAME = 'Notes App';
+export const APP_NAME = 'Note App';
