@@ -1,20 +1,17 @@
-import '@/app/globals.css';
-import { ReactNode } from 'react';
-import Header from '@/components/ui/Header';
-import Footer from '@/components/ui/Footer';
+import '../globals.css';
+import { NotesProvider } from '@/contexts/NotesContext';
 
-export const metadata = {
-  title: 'AI Generated Notes App',
-  description: 'A simple and efficient note-taking application',
-};
-
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-100 text-gray-900">
-        <Header />
-        <main className="container mx-auto p-4">{children}</main>
-        <Footer />
+      <head>
+        <title>Note App</title>
+        <meta name="description" content="A simple note-taking app." />
+      </head>
+      <body>
+        <NotesProvider>
+          {children}
+        </NotesProvider>
       </body>
     </html>
   );
