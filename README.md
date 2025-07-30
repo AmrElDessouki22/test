@@ -1,39 +1,52 @@
-# AI Generated Project
+# AI Generated Note App
 
-This project is a notes application built with Next.js, TypeScript, and Tailwind CSS. It features a modern UI and a robust architecture.
+This project is a simple note-taking application built using Next.js 15+, React, and TypeScript. It demonstrates a full-featured application with modern tools and practices, including a comprehensive file structure, components, utilities, and state management.
+
+## Features
+
+- Create, read, update, and delete notes
+- Responsive design
+- Light and dark mode
+- State management with Context API
+- TypeScript for static type checking
 
 ## Getting Started
 
-First, install the dependencies:
+To get started, clone the repository and install the dependencies:
 
 ```bash
 npm install
 ```
 
-Then, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-## Features
+```bash
+npm run build
+```
 
-- Add, edit, and delete notes
-- Responsive design
-- Modern UI with Tailwind CSS
-- TypeScript for type safety
-- Dark mode support
+Start the production server:
 
-## Folder Structure
+```bash
+npm start
+```
 
-- `src/app`: Application pages and layouts
-- `src/components`: Reusable components
-- `src/lib`: Utility functions and constants
-- `src/hooks`: Custom hooks
-- `src/types`: TypeScript types
+### Environment Variables
 
-## License
+Create a `.env` file in the root directory and add the following:
 
-This project is licensed under the MIT License.
+```
+NEXT_PUBLIC_API_URL=<your-api-url>
+```
+
+## Technologies Used
+
+- Next.js
+- React
+- Tailwind CSS
+- TypeScript
