@@ -1,7 +1,9 @@
 "use client";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+import { InputHTMLAttributes } from 'react';
 
-export default function Input(props: InputProps) {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+export function Input(props: InputProps) {
   return <input {...props} className="border p-2 rounded w-full" />;
 }
