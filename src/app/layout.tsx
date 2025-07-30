@@ -1,16 +1,21 @@
 import '@/app/globals.css';
+import { ReactNode } from 'react';
 import { NotesProvider } from '@/contexts/NotesContext';
+import { Header } from '@/components/ui/Header';
+import { Footer } from '@/components/ui/Footer';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
-      <head>
-        <title>Note App</title>
-        <meta name="description" content="A simple note-taking app." />
-      </head>
       <body>
         <NotesProvider>
-          {children}
+          <Header />
+          <main>{children}</main>
+          <Footer />
         </NotesProvider>
       </body>
     </html>
