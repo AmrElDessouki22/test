@@ -1,29 +1,26 @@
 "use client";
 
-import { createContext, useState, useContext, ReactNode } from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
+import { Note } from '@/types';
 
-interface Note {
-  id: string;
-  text: string;
-}
-
-interface NotesContextType {
+interface NotesContextProps {
   notes: Note[];
-  addNote: (text: string) => void;
+  addNote: (note: Note) => void;
+  removeNote: (id: string) => void;
 }
 
-const NotesContext = createContext<NotesContextType | undefined>(undefined);
+const NotesContext = createContext<NotesContextProps | undefined>(undefined);
 
 export function NotesProvider({ children }: { children: ReactNode }) {
   const [notes, setNotes] = useState<Note[]>([]);
 
-  const addNote = (text: string) => {
-    const newNote = { id: Date.now().toString(), text };
-    setNotes((prevNotes) => [...prevNotes, newNote]);
-  };
+  const addNote = (note: Note) => setNotes((prevNotes) => [...prevNotes, note]);
+
+  const removeNote = (id: string) =>
+    setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
 
   return (
-    <NotesContext.Provider value={{ notes, addNote }}>
+    <NotesContext.Provider value={{ notes, addNote, removeNote }}>
       {children}
     </NotesContext.Provider>
   );
