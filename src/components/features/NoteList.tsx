@@ -1,17 +1,20 @@
 "use client";
 
-import { useContext } from 'react';
-import { NotesContext } from '@/contexts/NotesContext';
-import NoteItem from './NoteItem';
+import { useNotes } from '@/contexts/NotesContext';
+import { Note } from '@/types';
 
 export function NoteList() {
-  const { notes } = useContext(NotesContext);
+  const { notes, removeNote } = useNotes();
 
   return (
-    <div>
-      {notes.map(note => (
-        <NoteItem key={note.id} note={note} />
+    <ul>
+      {notes.map((note: Note) => (
+        <li key={note.id} className="p-2 border-b">
+          <h2 className="text-lg font-bold">{note.title}</h2>
+          <p>{note.content}</p>
+          <button onClick={() => removeNote(note.id)} className="text-red-500">Delete</button>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
