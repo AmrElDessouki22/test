@@ -1,13 +1,18 @@
 "use client";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
+import { ButtonHTMLAttributes, ReactNode } from 'react';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
 }
 
-export default function Button({ label, ...props }: ButtonProps) {
+export function Button({ children, ...props }: ButtonProps) {
   return (
-    <button {...props} className="bg-blue-500 text-white p-2 rounded">
-      {label}
+    <button
+      {...props}
+      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+    >
+      {children}
     </button>
   );
 }
