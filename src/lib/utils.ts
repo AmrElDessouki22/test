@@ -1,3 +1,3 @@
-export function formatDate(date: Date): string {
-  return date.toLocaleDateString();
+export function generateId() {
+  return Math.random().toString(36).substr(2, 9);
 }
